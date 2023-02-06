@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <template id="report_ficha_alumno">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>
+                                <span t-field="o.name"/>
+                            </h2>
+                            <t t-if="o.photo">
+                                <img t-att-src="'data:photo/jpg;base64,%s' %                                to_text(o.photo)"
+                                     style="max-height:8cm; max-width:8cm;"/>
+                            </t>
+                            <p></p>
+                            <t t-if="o.course">
+                                <p style="color: black; font-family: Verdana; font-                                weight: bold;">
+                                    Curso Académico:
+                                    <span t-field="o.course"/>
+                                </p>
+                            </t>
+                            <t t-if="o.ciclo">
+                                <p style="color: black; font-family: Verdana; font-                                weight: bold;">
+                                    Ciclo Formativo:
+                                    <span t-field="o.ciclo"/>
+                                </p>
+                            </t>
+                            <t t-if="o.empresa_id">
+                                <p style="color: black; font-family: Verdana; font-                                weight: bold;">
+                                    Empresa Selecionada:
+                                    <span t-field="o.empresa_id"/>
+                                </p>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>        <!--template para la ficha del alumno-->
+        <template id="ficha_alumno">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>
+                            <span t-field="o.name"/>
+                        </h2>
+                        <t t-if="o.foto">
+                            <img t-att-src="'data:photo/png;base64,%s' % to_text(o.photo)"
+                                 style="max-                            height:8cm; max-width:8cm;"/>
+                        </t>
+                        <p></p>
+                        <t t-if="o.course">
+                            <p style="color: black; font-family: Verdana; font-weight: bold;">Curso Academico:
+                                <span t-field="o.course"/>
+                            </p>
+                        </t>
+                        <t t-if="o.ciclo">
+                            <p style="color: black; font-family: Verdana; font-weight: bold;">Ciclo Formativo:
+                                <span t-field="o.ciclo"/>
+                            </p>
+                        </t>
+                        <t t-if="o.empresa_id">
+                            <p style="color: black; font-family: Verdana; font-weight: bold;">Empresa Seleccionada:
+                                <span t-field="o.empresa_id"/>
+                            </p>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>        <!--template report ficha del alumno-->
+        <template id="report_ficha_alumno">
+            <t t-call="web.html_container">
+                <t t-call="gestionfcts.ficha_alumno"></t>
+            </t>
+        </template><!--template report imprimir las fichas -->
+        <template id="report_imprimir_fichas">
+            <t t-call="web.html_container">
+                <t t-call="gestionfcts.ficha_alumno"></t>
+            </t>
+        </template><!--        <template id="listing">          <ul>            <li t-foreach="objects" t-as="object">              <a t-attf-href="#{ root }/objects/#{ object.id }">                <t t-esc="object.display_name"/>              </a>            </li>          </ul>        </template>        <template id="object">          <h1><t t-esc="object.display_name"/></h1>          <dl>            <t t-foreach="object._fields" t-as="field">              <dt><t t-esc="field"/></dt>              <dd><t t-esc="object[field]"/></dd>            </t>          </dl>        </template>-->
+    </data>
+</odoo>

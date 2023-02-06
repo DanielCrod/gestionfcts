@@ -1,0 +1,140 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="vista_gestionfcts_empresa_tree">
+            <field name="name">vista_gestionfcts_empresa_tree</field>
+            <field name="model">gestionfcts.empresa</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="contact"/>
+                    <field name="telephone"/>
+                    <field name="direccion"/>
+                    <field name="localidad"/>
+                    <field name="fp"/>
+                    <field name="erasmus"/>
+                    <field name="plazas"/>
+                    <field name="convenio"/>
+                    <field name="tareas"/>
+                    <field name="observaciones"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="vista_gestionfcts_empresa_form">
+            <field name="name">vista_gestionfcts_empresa_form</field>
+            <field name="model">gestionfcts.empresa</field>
+            <field name="arch" type="xml">
+                <form string="Formulario_Empresa">
+                    <sheet>
+                        <group name="group_top">
+                            <field name="name"/>
+                            <field name="contact"/>
+                            <field name="telephone"/>
+                            <field name="direccion"/>
+                            <field name="localidad"/>
+                            <field name="fp"/>
+                            <field name="erasmus"/>
+                            <field name="plazas"/>
+                            <field name="convenio"/>
+                            <field name="tareas"/>
+                            D<field name="observaciones"/>
+                            <field name="alumno_id">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="apellidos"/>
+                                    <field name="course"/>
+                                    <field name="ciclo"/>
+                                    <field name="dual"/>
+                                    <field name="erasmus"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <record id="accion_gestionfcts_empresa_form" model="ir.actions.act_window">
+            <field name="name">Listado de Empresas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">gestionfcts.empresa</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"></p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevos elementos
+                </p>
+            </field>
+        </record>
+        <menuitem id="menu_gestionfcts_listado_empresa" name="Listado de empresas" parent="menu_gestionfcts_raiz"
+                  sequence="0"/>
+        <menuitem id="menu_gestionfcts_empresas" name="Consultar" parent="menu_gestionfcts_listado_empresa" sequence="0"
+                  action="accion_gestionfcts_empresa_form"/>
+        <record model="ir.ui.view" id="vista_gestionfcts_alumno_tree">
+            <field name="name">vista_gestionfcts_alumno_tree</field>
+            <field name="model">gestionfcts.alumno</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                    <field name="fecha"/>
+                    <field name="foto"/>
+                    <field name="first_course"/>
+                    <field name="course"/>
+                    <field name="telephone"/>
+                    <field name="email"/>
+                    <field name="ciclo"/>
+                    <field name="work_period"/>
+                    <field name="dual"/>
+                    <field name="erasmus"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="vista_gestionfcts_alumno_form">
+            <field name="name">vista_gestionfcts_alumno_form</field>
+            <field name="model">gestionfcts.alumno</field>
+            <field name="arch" type="xml">
+                <form string="Formulario_Alumno">
+                    <sheet>
+                        <group name="group_top">
+                            <field name="name"/>
+                            <field name="apellidos"/>
+                            <field name="fecha"/>
+                            <field name="foto"/>
+                            <field name="first_course"/>
+                            <field name="course"/>
+                            <field name="telephone"/>
+                            <field name="email"/>
+                            <field name="ciclo"/>
+                            <field name="work_period"/>
+                            <field name="dual"/>
+                            <field name="erasmus"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="accion_gestionfcts_alumno_form" model="ir.actions.act_window">
+            <field name="name">Listado de Alumnos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">gestionfcts.alumno</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"></p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevos elementos
+                </p>
+            </field>
+        </record>
+        <menuitem id="menu_gestionfcts_raiz" name="Gestión FCTS" sequence="10"/>
+        <menuitem id="menu_gestionfcts_listado" name="Listado de alumnos" parent="menu_gestionfcts_raiz" sequence="0"/>
+        <menuitem id="menu_gestionfcts_alumnos" name="Consultar" parent="menu_gestionfcts_listado" sequence="0"
+                  action="accion_gestionfcts_alumno_form"/>
+
+
+
+
+
+
+    </data>
+</odoo>
